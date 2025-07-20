@@ -2,12 +2,8 @@
 
 import { Link } from 'next/link';
 import { useRouter } from 'next/navigation';
-import ReactIcon from '@repo/icons/react.svg?react';
-import GoogleIcon from '@repo/icons/google.svg?react';
-import AppleIcon from '@repo/icons/apple.svg?react';
 import { Button } from '@repo/ui/components/button';
 
-import LoginForm from '@/features/auth/components/login-form';
 import { paths } from '@/config/paths';
 
 const LoginPage = () => {
@@ -16,13 +12,16 @@ const LoginPage = () => {
   const onSuccess = (): void => {
     router.push(paths.home.getHref());
   };
+
   return (
     <div className="flex min-h-svh w-full items-center justify-center">
       <div className="flex w-full max-w-sm flex-col gap-6">
         <div className="flex flex-col items-center gap-2">
           <Link href={paths.home.getHref()} className="flex flex-col items-center gap-2 font-medium">
             <div className="flex items-center justify-center rounded-md text-6xl">
-              <ReactIcon />
+              <div className="bg-blue-500 h-16 w-16 rounded-full flex items-center justify-center text-white font-bold">
+                R
+              </div>
             </div>
             <span className="sr-only">React Boilerplate</span>
           </Link>
@@ -34,17 +33,12 @@ const LoginPage = () => {
             </Link>
           </div>
         </div>
-        <LoginForm onSuccess={onSuccess} />
-        <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-          <span className="bg-background text-muted-foreground relative z-10 px-2">Or</span>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <Button variant="outline" className="w-full" type="button">
-            <AppleIcon />
-            Continue with Apple
+        <div className="grid gap-2">
+          <Button className="w-full" onClick={onSuccess}>
+            Continue to Dashboard
           </Button>
           <Button variant="outline" className="w-full" type="button">
-            <GoogleIcon />
+            <span className="mr-2">G</span>
             Continue with Google
           </Button>
         </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import { ChartContainer } from '@repo/ui/components/chart';
 import { Treemap } from 'recharts';
 

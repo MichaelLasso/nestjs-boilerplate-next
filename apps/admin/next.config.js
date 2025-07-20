@@ -15,24 +15,25 @@ const nextConfig = {
       '@repo/icons': path.resolve('../../packages/ui/src/assets/icons'),
     };
 
-    // Configure SVG handling
+    // Configure SVG handling - find and remove existing svg rule
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test?.test?.('.svg'),
+    );
+
+    if (fileLoaderRule) {
+      fileLoaderRule.exclude = /\.svg$/;
+    }
+
+    // Add SVGR handling
     config.module.rules.push({
       test: /\.svg$/,
       oneOf: [
         {
           resourceQuery: /react/,
-          use: [
-            {
-              loader: '@svgr/webpack',
-              options: {
-                typescript: true,
-                ext: 'tsx',
-              },
-            },
-          ],
+          use: ['@svgr/webpack'],
         },
         {
-          type: 'asset/resource',
+          use: ['@svgr/webpack'],
         },
       ],
     });

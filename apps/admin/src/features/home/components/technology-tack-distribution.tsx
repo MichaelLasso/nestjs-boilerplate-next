@@ -1,3 +1,5 @@
+'use client';
+
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@repo/ui/components/chart';
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
 

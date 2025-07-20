@@ -1,3 +1,5 @@
+'use client';
+
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, type BarProps } from 'recharts';
 import { ChartContainer, type ChartConfig, ChartTooltip, ChartTooltipContent } from '@repo/ui/components/chart';
 

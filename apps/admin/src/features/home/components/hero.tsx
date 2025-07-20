@@ -1,3 +1,5 @@
+'use client';
+
 import { Link } from 'next/link';
 import { Button } from '@repo/ui/components/button';
 import GithubIcon from '@repo/icons/github.svg?react';
