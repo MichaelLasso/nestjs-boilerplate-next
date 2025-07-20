@@ -1,17 +1,20 @@
-import { Link, useNavigate } from 'react-router';
+'use client';
+
+import { Link } from 'next/link';
+import { useRouter } from 'next/navigation';
 import ReactIcon from '@repo/icons/react.svg?react';
 
 import { paths } from '@/config/paths';
 import RegisterForm from '@/features/auth/components/register-form';
 
 const RegisterPage = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center">
       <div className="flex w-full max-w-sm flex-col gap-6">
         <div className="flex flex-col items-center gap-2">
-          <Link to="/" className="flex flex-col items-center gap-2 font-medium">
+          <Link href="/" className="flex flex-col items-center gap-2 font-medium">
             <div className="flex items-center justify-center rounded-md text-6xl">
               <ReactIcon />
             </div>
@@ -21,12 +24,12 @@ const RegisterPage = () => {
         </div>
         <RegisterForm
           onSuccess={() => {
-            navigate(paths.home.getHref());
+            router.push(paths.home.getHref());
           }}
         />
         <div className="text-muted-foreground text-center text-sm">
           Already have an account?{' '}
-          <Link to={paths.auth.login.getHref()} className="underline underline-offset-4">
+          <Link href={paths.auth.login.getHref()} className="underline underline-offset-4">
             Login
           </Link>
         </div>

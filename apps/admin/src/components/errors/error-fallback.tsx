@@ -1,6 +1,6 @@
 import { Button } from '@repo/ui/components/button';
 import { AlertTriangle } from 'lucide-react';
-import { Link } from 'react-router';
+import { Link } from 'next/link';
 
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
@@ -39,7 +39,7 @@ export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
             asChild
             className="rounded-lg px-6 py-2 font-medium transition-colors duration-200 hover:bg-neutral-200/60 dark:text-white dark:hover:bg-neutral-700/60"
           >
-            <Link to={paths.home.getHref()}>Back to Home</Link>
+            <Link href={paths.home.getHref()}>Back to Home</Link>
           </Button>
         </div>
       </div>

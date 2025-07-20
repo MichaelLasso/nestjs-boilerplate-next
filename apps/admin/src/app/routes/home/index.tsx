@@ -1,3 +1,5 @@
+'use client';
+
 import Overview from '@/features/home/components/overview';
 import ProgrammingLanguagesUsage from '@/features/home/components/programming-languages-usage';
 import TechnologyTackDistribution from '@/features/home/components/technology-tack-distribution';

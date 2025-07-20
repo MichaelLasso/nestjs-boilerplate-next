@@ -10,15 +10,14 @@ const createEnv = () => {
       .refine((e) => e === 'true' || e === 'false')
       .default('false'),
   });
-  const envVars = Object.entries(import.meta.env).reduce<Record<string, string>>((acc, curr) => {
-    const [key, value] = curr as [string, string];
-    if (key.startsWith('VITE_')) {
-      acc[key.slice(5)] = value;
-    } else {
-      acc[key] = value;
-    }
-    return acc;
-  }, {});
+
+  // Get environment variables from process.env for Next.js
+  const envVars = {
+    API_URL: process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || '',
+    MODE: process.env.NODE_ENV || 'development',
+    ENABLE_MOCK: process.env.NEXT_PUBLIC_ENABLE_MOCK || process.env.ENABLE_MOCK || 'false',
+  };
+
   const parsedEnv = envSchema.safeParse(envVars);
   if (!parsedEnv.success) {
     throw new Error(
