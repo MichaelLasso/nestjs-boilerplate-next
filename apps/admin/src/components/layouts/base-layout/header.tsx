@@ -1,6 +1,6 @@
 import { Separator } from '@repo/ui/components/separator';
 import { SidebarTrigger } from '@repo/ui/components/sidebar';
-import { Link } from 'react-router';
+import { Link } from 'next/link';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,7 +24,7 @@ const Header = ({ title }: { title: string }) => {
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
               <BreadcrumbLink asChild>
-                <Link to={paths.home.getHref()}>Dashboard</Link>
+                <Link href={paths.home.getHref()}>Dashboard</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator className="hidden md:block" />
@@ -35,7 +35,7 @@ const Header = ({ title }: { title: string }) => {
         </Breadcrumb>
       </div>
       <div className="flex items-center gap-4 px-4">
-        <Link to={paths.github.path} target="_blank">
+        <Link href={paths.github.path} target="_blank">
           <GithubIcon />
         </Link>
         <ThemeToggle />

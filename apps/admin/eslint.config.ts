@@ -1,3 +1,3 @@
-import { config as viteConfig } from '@repo/lint-config/react-vite';
+import { config as nextConfig } from '@repo/lint-config/next';
 
-export default viteConfig;
+export default nextConfig;

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from 'next/link';
 import { Button } from '@repo/ui/components/button';
 import GithubIcon from '@repo/icons/github.svg?react';
 
@@ -15,7 +15,7 @@ const Hero = () => {
         A complete toolkit for modern React development, production-ready application architecture
       </p>
       <Button asChild size="lg" className="mt-2 flex items-center gap-2 rounded-full">
-        <Link to="https://github.com/gaoxiu333/react-template" target="_blank" rel="noopener noreferrer">
+        <Link href="https://github.com/gaoxiu333/react-template" target="_blank" rel="noopener noreferrer">
           <GithubIcon className="h-5 w-5" />
           GitHub
         </Link>
